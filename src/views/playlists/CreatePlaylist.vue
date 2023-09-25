@@ -1,5 +1,5 @@
 <template>
-  <form @submit.prevent="handleSubmt">
+  <form @submit.prevent="handleSubmit">
     <h4>Créer nouvelle Playlist</h4>
     <input type="text" placeholder="Titre de la playlist" v-model="title">
     <textarea placeholder="Description de la playlist..." v-model="description" required></textarea>
@@ -22,7 +22,7 @@ import  { timestamp } from '@/firebase/config'
 
 export default {
     setup () {
-const {filePath, url, uploadImage} = useStorage()
+const {filePath, url, uploadImage}= useStorage()
 const { error, addDoc } = useCollection('playlists')
 const  {user } = getUser()
 
@@ -32,10 +32,12 @@ const  {user } = getUser()
         const fileError = ref(null)
         const isPending = ref(false)
 
-        const handleSubmt = async () => {
+        const handleSubmit = async () => {
             if(file.value) {
                 isPending.value = true
+                
                 await uploadImage(file.value)
+            
                 await addDoc({
                     title: title.value,
                     description: description.value,
@@ -53,7 +55,7 @@ const  {user } = getUser()
             }
         }
 
-        //allowed file types
+        
         const types = ['image/png', 'image/jpeg']
 
             const handleChange = (e) => {
@@ -69,7 +71,7 @@ const  {user } = getUser()
             }
         }
 
-        return {title, description, handleSubmt , handleChange, fileError, isPending}
+        return {title, description, handleSubmit , handleChange, fileError, isPending}
     }
 }
 </script>
