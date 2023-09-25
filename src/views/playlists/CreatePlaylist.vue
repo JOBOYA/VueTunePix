@@ -25,7 +25,7 @@ export default {
         const handleSubmt = () => {
             if(file.value) {
             console.log(title.value, description.value, file.value)
-            }
+}
         }
 
         //allowed file types
