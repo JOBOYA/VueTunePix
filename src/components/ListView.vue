@@ -1,18 +1,20 @@
 <template>
   <div v-for="playlist in playlists" :key="playlist.id">
-  <div class="single">
-    <div class="thumbnail">
-      <img :src="playlist.coverUrl" >
-</div>
-    <div class="info">
-      <h3>{{ playlist.title }}</h3>
-        <p>Créer par {{ playlist.userName }}</p>
+    <router-link class="no-underline" :to="{ name: 'PlaylistDetails', params: { id: playlist.id }}">
+    <div class="single">
+      <div class="thumbnail">
+        <img :src="playlist.coverUrl" >
+       </div>
+          <div class="info">
+            <h3>{{ playlist.title }}</h3>
+              <p>Créer par {{ playlist.userName }}</p>
+              </div>
+            <div class="song-number">
+          <p>{{ playlist.songs.length }}</p>
+        
         </div>
-        <div class="song-number">
-        <p>{{ playlist.songs.length }}</p>
-      
       </div>
-    </div>
+  </router-link>
   </div>
 </template>
 
@@ -31,6 +33,7 @@ export default {
   border-radius: 10px;
   margin: 16px 0;
   transition: all ease 0.2s;
+  background: white;
 }
 
 .single:hover{
@@ -39,6 +42,10 @@ export default {
  transition: all ease 0.2s;
 }
 
+
+.no-underline {
+text-decoration: none;
+}
 .thumbnail{
   max-width: 100px;
   max-height: 100px;

@@ -5,6 +5,9 @@
         <h1 class="no-underline"><router-link class="no-underline" :to="{name: 'Accueil'}">Jojo Tune</router-link></h1>
         <div class="links">
           <div v-if="user">
+            <router-link :to="{ name: 'CreatePlaylist'}" class="no-underline">Créer Playlist</router-link>
+            <router-link :to="{ name: 'UserPlaylists'}" class="no-underline">Mes Playlists</router-link>
+            <span>Salut, {{ user.displayName }}</span>
             <button @click="handleClick">déconnexion</button>
           </div>
 
@@ -75,5 +78,13 @@ nav img {
 width: 5%;
 max-height: 5%;
 border-radius: 50%;
+}
+
+span {
+  font-size: 14px;
+  display: inline-block;
+  margin-left: 16px;
+  padding-left: 16px;
+  border-left: 1px solid #eee;
 }
 </style>
