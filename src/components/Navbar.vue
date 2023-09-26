@@ -87,4 +87,34 @@ span {
   padding-left: 16px;
   border-left: 1px solid #eee;
 }
+
+@media (max-width: 768px) {
+  nav img {
+    width: 10%;
+    max-height: 10%;
+  }
+}
+
+@media (max-width: 368px) {
+  nav .links {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 368px) {
+  nav .links a, button {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 368px) {
+  nav {
+    overflow-x: auto;
+  }
+}
+
+
+
+
 </style>
