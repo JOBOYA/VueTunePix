@@ -55,4 +55,14 @@ form {
   text-align:  left;
 }
 
+@media (max-width: 768px) {
+  .add-song button {
+    font-size: smaller;
+  }
+  form input {
+    width: 100%;
+  }
+}
+
+
 </style> 

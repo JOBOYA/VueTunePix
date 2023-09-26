@@ -120,4 +120,11 @@ export default {
     border-bottom: 1px dashed var(--secondary);
     margin-bottom: 20px;
   }
+
+  @media (max-width: 768px) {
+  .playlist-details {
+    grid-template-columns: 1fr;
+  }
+}
+
 </style>
